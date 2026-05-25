@@ -3,7 +3,7 @@
 #ifndef CCFG_HEADER
 #define CCFG_HEADER
 
-#include <cstdint>
+#include <cstring>
 #include <fstream>
 #include <unordered_map>
 #include <functional>

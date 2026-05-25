@@ -15,6 +15,10 @@ int main()
 {
 	var = var2 = 0;
 
+	printf("Before creation:\n");
+	printf("%d\n", var);
+	printf("%d\n", var2);
+
 	// See full usage example for usage tips - using your own define to create variables will make creation much easier.
 	cfg.CreateVariable(CCFG_HASH("var"), &var, 123, 0, false);
 	cfg.CreateVariable(CCFG_HASH("just needs to be a unique variable name"), &var2, 0, false);
@@ -22,14 +26,25 @@ int main()
 	// var is now 123 after being set to the default value specified
 	// var2 is still 0
 
+	printf("After creation:\n");
+	printf("%d\n", var);
+	printf("%d\n", var2);
+
 	// Change then save to file
 	var = var2 = 111;
 	cfg.SaveToFile("filename.fileextension");
 
-
 	// Set to 0 then load old values we just saved
 	var = var2 = 0;
+	printf("Before load:\n");
+	printf("%d\n", var);
+	printf("%d\n", var2);
+
 	cfg.LoadFromFile("filename.fileextension");
+
+	printf("After load:\n");
+	printf("%d\n", var);
+	printf("%d\n", var2);
 
 	// Both vars are now back to 111 after loading the saved file
 
