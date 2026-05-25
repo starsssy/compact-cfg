@@ -47,12 +47,12 @@ int main()
 	// (Assuming it doesnt involve pointers, in which case you should make a custom handler - see the vector handler example)
 
 	// Simple way to implement resetting to defaults
-	ccfg.SaveToFile("defaults"); // Save before changes are made
+	ccfg.SaveToFile("defaults"); // Save before changes are made by user
 	ccfg.LoadFromFile("defaults"); // Then just load defaults file to reset
 
-	printf("%d", cfgsys.asd123qwe);
-	printf("%d", cfgsys.example_area.asdasd);
+	printf("%d\n", cfgsys.asd123qwe);
+	printf("%d\n", cfgsys.example_area.asdasd);
 
 	for (auto& i : cfgsys.vector_custom_var.vec)
-		printf("%.0f", i);
+		printf("%.0f\n", i);
 }
