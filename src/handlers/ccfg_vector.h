@@ -15,12 +15,29 @@ public:
 	VectorData(const std::vector<T>& _vec) : vec{_vec} {}
 
 	// Helpers to make this class act like an std::vector
-	T& operator[](const size_t& index)
+	operator std::vector<T>& () const
+	{
+		return vec;
+	}
+
+	VectorData<T>& operator=(const std::vector<T>& other)
+	{
+		vec = other;
+		return *this;
+	}
+
+	VectorData<T>& operator=(const VectorData<T>& other)
+	{
+		vec = other.vec;
+		return *this;
+	}
+
+	T& operator[](const size_t& index) const
 	{
 		return vec[index];
 	}
 
-	T& at(const size_t& index)
+	T& at(const size_t& index) const
 	{
 		return vec.at(index);
 	}
