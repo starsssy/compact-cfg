@@ -11,8 +11,11 @@
 // Not used directly by compactcfg, but included because usage depends on having a hash function
 #include "./hash/fnv1a32.h" // https://github.com/irfantopal/fnv1a
 
-// Compile time hash
-#define CCFG_HASH FNV1A32
+#define CCFG_HASH FNV1A32 // Compile time hash
+
+// Allocators - Use your own if needed
+#define CCFG_MALLOC malloc
+#define CCFG_FREE free
 
 // Hash, size, and category type can be changed to fit your needs, although defaults should be sufficient
 using HashType_t = uint32_t;
@@ -49,7 +52,7 @@ public:
 
 	// OVERRIDE THESE VIRTUAL FUNCTIONS IN YOUR CLASS!!!
 
-	// Should return a Bytes class with .data being a malloc()'d block of memory containing
+	// Should return a Bytes class with .data being a CCFG_MALLOC()'d block of memory containing
 	// what you want it to be saved as
 	virtual Bytes ToBytes() = 0;
 

@@ -62,7 +62,7 @@ void CompactConfig::ConfigWrite(std::ofstream& stream, HashType_t key, const Con
 			stream.write((const char*)&custom_data.size, sizeof(SizeType_t));
 			stream.write((const char*)custom_data.data, custom_data.size);
 
-			free(custom_data.data);
+			CCFG_FREE(custom_data.data);
 		}
 	}
 	else

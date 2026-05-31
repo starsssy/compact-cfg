@@ -28,14 +28,14 @@ private:
 }
 ```
 
-The ToBytes function needs to return a BaseCustomBytes::Bytes struct containing a malloc()'d block of memory with the desired data inside, along with the size of the data.
+The ToBytes function needs to return a BaseCustomBytes::Bytes struct containing a CCFG_MALLOC()'d block of memory with the desired data inside, along with the size of the data.
 
 The FromBytes function takes in a block of memory and its size, and needs to interpret that memory and set appropriate variables with it.
 
 ### Example:
 In a custom vector handler, the ToBytes function would return a Bytes struct that looks like this: 
 
-```{ (Ptr to malloc()'d memory with vector data inside), (Size in bytes of vector data) }```
+```{ (Ptr to CCFG_MALLOC()'d memory with vector data inside), (Size in bytes of vector data) }```
 
 And the FromBytes function would take in the block of memory and its size, then use it to set the vector data:
 

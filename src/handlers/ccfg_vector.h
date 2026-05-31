@@ -57,7 +57,7 @@ private: // Private here but not in the base class. Still accessible through the
 	{
 		SizeType_t data_sz = (vec.size() * sizeof(T)) + sizeof(class_ver);
 
-		char* bytes = (char*)malloc(data_sz);
+		char* bytes = (char*)CCFG_MALLOC(data_sz);
 		if (!bytes)
 			return { nullptr, 0 };
 
